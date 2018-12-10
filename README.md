@@ -9,7 +9,7 @@ Due to the sensitivity of the information this repository should never be public
 
 ## Structure
 
-`blissroms/` - documents BlissRoms specific documentation
-`blissos/` - documents Bliss OS specific documentation
-`common/` - documents common documentation
-`infrastructure/` - documents server provisioning and other miscellaneous details
+ - `blissroms/` - documents BlissRoms specific documentation
+ - `blissos/` - documents Bliss OS specific documentation
+ - `common/` - documents common documentation
+ - `infrastructure/` - documents server provisioning and other miscellaneous details
