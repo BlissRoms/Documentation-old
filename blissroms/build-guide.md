@@ -161,16 +161,16 @@ If you face the latter, congratulations! You've successfully built BlissRoms for
 
 In here, you’ll find a `.zip` that goes along the lines of `Bliss-v11.5-Stable-bullhead-UNOFFICIAL-20180213-0621.zip`. Install TWRP, flash the build to your device, and enjoy!
 
-4. Troubleshooting
-	If your build failed… Darn it!
-	Well, there’s a few stuff you can try.
-Try a fresh ‘repo sync’ to make your repository up to date
-Make sure your dependencies are installed correctly
-Make sure you sourced build/envsetup.sh
-Make sure you’re at the root of the build tree
-Make sure you ran breakfast correctly and it did not error out
-Make sure your computer itself isn’t faulty 
-	If nothing fixes the problem, you can ask us via Hangouts. Get to the G+ Build Support.
+### Troubleshooting
+
+If your build failed, there are a couple things you can try.
+
+* Try a fresh `repo sync` to make your repository up to date. Sometimes, the Internet connection between you and GitHub can be flaky. In rare cases a commit merge might be ongoing, and you might've grabbed an incomplete merge. Mostly, this should fix the issue 70% of the time.
+* Make sure your dependencies are installed correctly. Error messages help out a lot here! Often it will say `shared/linked library not found` or something along those lines.
+* Make sure you sourced `build/envsetup.sh`. This is especially common and worth suspecting if none of the build commands like `breakfast` and `lunch` work. If you have `repo sync`ed do this again.
+* Make sure you’re at the root of the build tree. Again, to quickly jump there, use `croot`.
+* Make sure you ran `breakfast` correctly and it did not error out. Missing device files will prevent successful builds.
+* Make sure your computer itself isn’t faulty. HDDs usually die first, followed by RAM. SSDs rarely die but failure is not unheard of.  In extremely rare cases, your CPU may have a defect. If you're unsure, run a stress test via a program like Prime95.
 
 Conclusion
 	Again, if something goes wrong, use the help support Hangouts or use Google. Most of the errors you encounter is due to misconfiguration and wrong commands entered.
