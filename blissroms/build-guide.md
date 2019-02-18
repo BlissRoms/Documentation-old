@@ -172,8 +172,12 @@ If your build failed, there are a couple things you can try.
 * Make sure you ran `breakfast` correctly and it did not error out. Missing device files will prevent successful builds.
 * Make sure your computer itself isn’t faulty. HDDs usually die first, followed by RAM. SSDs rarely die but failure is not unheard of.  In extremely rare cases, your CPU may have a defect. If you're unsure, run a stress test via a program like Prime95.
 
-Conclusion
-	Again, if something goes wrong, use the help support Hangouts or use Google. Most of the errors you encounter is due to misconfiguration and wrong commands entered.
-	This guide is automatically saved to your Google account after you have read it. You need to go to docs.google.com to read it again. Building a ROM is very hard and tedious - so don’t hit yourself too hard for not remembering the steps. Remember, this guide will automatically update to handle new errors and use-cases.
-	After you finish building, you can try out the Git Started guide above. Make changes, commit, and send them off to Bliss gerrit for review! Or better yet, get access to new changes that isn’t on the official channel for the moment. Again, ROM building is a fun project you can work with. I hope this guide was a lot of fun to run through!
-	-ideaman924 aka Eric
+If something goes wrong and you've tried everything above, first use Google to look up your error! Most of the errors you encounter is due to misconfiguration and wrong commands entered. More often than not, Google will have the answer you are looking for. If you're still stuck and nothing fixes the problem, then ask us via our Telegram Build Support chat.
+
+### Conclusion
+
+Building a ROM is very hard and tedious and the results are very rewarding! If you managed to follow along, congratulations!
+
+After you finish building, you can try out the Git Started guide. Make changes, commit, and send them off to our Gerrit for review! Or better yet, download experimental commits not ready for the mainline repositories and review them! Again, ROM building is a fun project you can work with. I hope this guide was a lot of fun to run through!
+
+-- Eric Park (ideaman924)
