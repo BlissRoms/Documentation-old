@@ -19,62 +19,62 @@ You may try building on crappy hardware but there is no guarantee your build wil
 
 Install OpenJDK:
 
-	sudo apt install openjdk-8-jdk
+    sudo apt install openjdk-8-jdk
 
 ### Install build tools
 
 For Ubuntu 14.x:
 
-	sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-gplv2-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
+    sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-gplv2-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
 
 For Ubuntu 15.x:
 
-	sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
+    sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
 
 For Ubuntu 16.x (or newer):
 
-	sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
-	
+    sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
+
 ### Install source code tools
 
 Now we need to get the source code via a program named `repo`, made by Google. The primary function of `repo` is to read a manifest file located in Bliss's GitHub, and find what repositories you need to actually build Android.
 
 Create a `~/bin` directory for `repo` to live in:
 
-	mkdir -p ~/bin
+    mkdir -p ~/bin
 
 The `-p` flag instructs `mkdir` to _only_ create the directory if it does not exist in the first place. Now download the `repo` tool into `~/bin`:
 
-	curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 
 Make `repo` executable:
 
-	chmod a+x ~/bin/repo
+    chmod a+x ~/bin/repo
 
 And add it to PATH:
-	
-	nano .bashrc
-	
+
+    nano .bashrc
+
 Scroll to the end of the file and type these lines:
 
-	# Export ~/bin
-	export PATH=~/bin:$PATH
+    # Export ~/bin
+    export PATH=~/bin:$PATH
 
 Ctrl-O and enter to save, then Ctrl-X to exit nano. Now either logout and login again (or reboot), or `source` the file:
 
-	source .bashrc
+    source .bashrc
 
 Which can be shortened to:
 
-	. .bashrc
+    . .bashrc
 
 #### What if I need `repo` globally?
 
 If you need the `repo` tool to be available anywhere, you will need to first download `repo` to your home directory, move it with `sudo` and give it executable permissions. The exact commands are as follows:
 
-	curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
-	sudo mv ~/repo /usr/bin/
-	chmod a+x /usr/bin/repo
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
+    sudo mv ~/repo /usr/bin/
+    chmod a+x /usr/bin/repo
 
 `repo` will now work anywhere, without any `.bashrc` modifications. However, these steps aren’t recommended as `repo` might become a security risk if a vulnerability is found.
 
@@ -84,27 +84,27 @@ Now we’re ready to download the source code.
 
 Create a directory for the source:
 
-	mkdir -p ~/bliss/p9.0
-	cd -p ~/bliss/p9.0
+    mkdir -p ~/bliss/p9.0
+    cd -p ~/bliss/p9.0
 
 Before we download, we need to tell `repo` and `git` who we are. Run the following commands, substituting your information:
 
-	git config --global user.email “randy.mcrandyface@hotmail.net”
-	git config --global user.name “Randy McRandyface”
+    git config --global user.email “randy.mcrandyface@hotmail.net”
+    git config --global user.name “Randy McRandyface”
 
 Now, we’re ready to initialize. We need to tell `repo` which manifest to read:
 
-	repo init -u https://github.com/BlissRoms/platform_manifest.git -b p9.0
+    repo init -u https://github.com/BlissRoms/platform_manifest.git -b p9.0
 
 `-b` is for the branch, and we’re on `p9.0`, Android Pie. It’ll take a couple of seconds. You may need to type `y` for the color prompt.
 
 Then sync the source:
 
-	repo sync -j24 -c
+    repo sync -j24 -c
 
 `-j` is for threads. Typically, your CPU core count is your thread count, unless you’re using an older Intel CPU with hyperthreading. In that case, the thread count is double the count of your CPU cores. Newer CPUs have dropped hyperthreading unless you have the i9, so check how many threads you have. If you have four threads, you would run:
 
-	repo sync -j4 -c
+    repo sync -j4 -c
 
 `-c` is for pulling in only the current branch, instead of the entire history. This is useful if you need the downloads fast and don’t want the entire history to be downloaded. This is used by default unless specified otherwise.
 
@@ -114,36 +114,36 @@ Then sync the source:
 
 Set up the build environment:
 
-	. build/envsetup.sh
+    . build/envsetup.sh
 
 Breaking down the command, `.` is for `source`. But what does `source` do? It gets aliases, functions and commands from the file and loads it into `bash` so it can be used. But what does `build/envsetup.sh` have? It has all the commands you need to execute a build. You need to do this every time you’re about to run a build, or `bash` will not be able to understand the build commands.
 
 Define what device you’re going to build. For example, the Nexus 5X, has a codename of `bullhead`. You can check your specific device's codename on GitHub or on Google. Execute:
 
-	breakfast bullhead
+    breakfast bullhead
 
 What does this do? `breakfast` searches repositories for your device "tree", which contains all the details needed to make the build suitable for your device. CPU, kernel info, device screen size, whether the board has Bluetooth, NFC, what frequencies the build needs for Wi-Fi, and a bunch of other things. `breakfast` will automatically search in the `BlissRoms-Devices` GitHub repository, and grab your device tree for you.
 
 Okay, so we have the device tree set up. Feel free to browse around the source code to see what changed. You should see folders added to `device/`, `kernel/` and `vendor/`. A shortcut:
 
-	croot
-	
+    croot
+
 will dump you back in the root of the source code tree. So if you’ve been going through folders and don’t have any idea where you are, you can use the above command. This command, however, requires you to have `source`d `build/envsetup.sh` earlier.
 
 So we’re ready to build! Run
-	
-	brunch bullhead
+
+    brunch bullhead
 
 But what is `brunch`? It is a compact form of these commands:
 
-	breakfast bullhead
-	mka bacon
+    breakfast bullhead
+    mka bacon
 
 `brunch` will automatically pull the device trees again or check if it’s there already by running `breakfast`. Then it’ll call upon the build system to build a full `.zip` for your device.
 
 Therefore, if you have already run `breakfast`, you can just run:
 
-	mka bacon
+    mka bacon
 
 The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
 
@@ -157,7 +157,7 @@ There are two outcomes to a build - either it fails and you get a red error mess
 
 If you face the latter, congratulations! You've successfully built BlissRoms for your device. Grab the artifacts for your device:
 
-	cd out/target/product/bullhead/
+    cd out/target/product/bullhead/
 
 In here, you’ll find a `.zip` that goes along the lines of `Bliss-v11.3-Stable-bullhead-UNOFFICIAL-20181206-0621.zip`. Install TWRP, flash the build to your device, and enjoy!
 
