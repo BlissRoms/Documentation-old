@@ -184,7 +184,7 @@ This should output:
 
     Changed to new branch p9.0 tracking upstream BlissRoms/p9.0
 
-Now make your changes, cherry-picks, etc. and commit them. If you need a guide to do that, check out [Picking from other sources](#). When you’re done, come back here! Then all you have to do to send it to gerrit is:
+Now make your changes, cherry-picks, etc. and commit them. If you need a guide to do that, check out [Picking from other sources](#picking-from-other-sources). When you’re done, come back here! Then all you have to do to send it to gerrit is:
 
     git review
 
