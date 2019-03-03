@@ -211,7 +211,7 @@ Before pushing and submitting, we need to check if our commit was successfully c
 
     git log --oneline
 
-After you check that your commit is there, you can push `q` to quit. Then you can follow the instructions from [Submitting code](#) again.
+After you check that your commit is there, you can push `q` to quit. Then you can follow the instructions from [Submitting code](#submitting-code) again.
 
 ### Conclusion
 
