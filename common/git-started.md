@@ -150,7 +150,7 @@ will cherry-pick that commit to the current branch you are in.  A benefit of thi
 
 will cherry-pick to a new branch based on the submitter’s name and change ID.  If you choose this route the change will be in its own branch and when you are done you can just delete that branch.
 
-    “Switched to a new branch review/yourusername/changenumber”
+    Switched to a new branch review/yourusername/changenumber
 
 Now you can review the change. Follow these guidelines:
 
