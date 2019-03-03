@@ -138,13 +138,13 @@ Now you have a list of commits sorted by change number with a description of wha
 
 We have a few choices of how to pick commits.
 
-1. Cherry-picking commits to current branch
+#### Cherry-picking commits to current branch
 
     git review -x changenumber
 
 will cherry-pick that commit to the current branch you are in.  A benefit of this is the next time you `repo sync –force-sync`, it will discard the commits you picked.
 
-2. Cherry-picking commits to new branch
+#### Cherry-picking commits to new branch
 
     git review -d changenumber
 
