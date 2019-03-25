@@ -192,7 +192,7 @@ If you are submitting multiple commits it will ask if you really want to, just t
 
 ### Picking from other sources
 
-So you’ve successfully learned how to commit and send it to Bliss gGrrit. But you need to find something to commit. Thankfully, there are lots of examples you can try out. You can check other teams’ Gerrits and cherry-pick from them.
+So you’ve successfully learned how to commit and send it to Bliss Gerrit. But you need to find something to commit. Thankfully, there are lots of examples you can try out. You can check other teams’ Gerrits and cherry-pick from them.
 
 For this demonstration, I’m going to use LineageOS's Gerrit. Find the commit you want, and note down the commit ID.
 
