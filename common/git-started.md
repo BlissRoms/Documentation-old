@@ -28,7 +28,7 @@ This command should show something along those lines:
     email = you@youremail.com
     name = Your Name
 
-Edit any details if it’s incorrect. Your email and name is used to sign off commits, various changes, etc.
+Edit any incorrect details. Your email and name is used to sign off commits, various changes, etc, so it is important that they are the same ones found on Gerrit and GitHub.
 
 Next we will create a SSH key named “gerrit” to communicate with the Gerrit server.
 
