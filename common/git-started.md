@@ -52,6 +52,10 @@ This should show something like:
 
 Starting with the line beginning with ssh-rsa and ending with the email, paste that bit into the browser and click “Add”.
 
+#### Gerrit shows an error about the key!
+
+Are you sure you used the correct key? Do not use the "private" key. The private key should be kept private as it is the key that allows you to authenticate yourself against servers like Gerrit. When you authenticate using your private key, the servers send out requests encrypted with your "public" key that only your "private" key can decrypt. This is the basis behind SSH authentication. So keep your private key safe, and try pasting the public key! Most public keys end with the characters `.pub`.
+
 Then, add the new SSH key to your local identity in terminal.
 
     eval `ssh-agent`
