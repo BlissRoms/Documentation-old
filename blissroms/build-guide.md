@@ -33,9 +33,13 @@ For Ubuntu 15.x:
 
     sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk2.8-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
 
-For Ubuntu 16.x (or newer):
+For Ubuntu 16.x:
 
     sudo apt install bison build-essential curl flex git gnupg gperf libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline6-dev lib32z1-dev git-core libc6-dev-i386 x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev unzip
+
+For Ubuntu 18.x (or newer):
+
+    sudo apt install bison build-essential curl flex git gnupg gperf liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev-i386 x11proto-core-dev libx11-dev ccache libgl1-mesa-dev unzip
 
 ### Install source code tools
 
