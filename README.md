@@ -7,7 +7,7 @@ This repository documents guides and other information to build BlissRoms, Bliss
 
 ## Structure
 
- - `blissroms/` - documents BlissRoms specific documentation
+ - [`blissroms/`](blissroms/index.md) - documents BlissRoms specific documentation
  - `blissos/` - documents Bliss OS specific documentation
- - `common/` - documents common documentation
+ - [`common/`](common/index.md) - documents common documentation
  - `infrastructure/` - documents server provisioning and other miscellaneous details
