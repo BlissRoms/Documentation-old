@@ -91,7 +91,7 @@ Now we’re ready to download the source code.
 Create a directory for the source:
 
     mkdir -p ~/bliss/p9.0
-    cd -p ~/bliss/p9.0
+    cd ~/bliss/p9.0
 
 Before we download, we need to tell `repo` and `git` who we are. Run the following commands, substituting your information:
 
