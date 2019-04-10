@@ -66,6 +66,12 @@ Which can be shortened to:
 
     . .bashrc
 
+#### What is `source`?
+
+`source` is a `bash` command to read aliases, functions, and commands from the specified file. Typically, you'll supply `bash` with a configuration file such as `.bashrc` or `.bash_profile`, or an initialization file such as `envsetup.sh`. The difference is that while the configuration file lists configuration and user-defined aliases and functions, initialization files typically hold build commands such as `breakfast`, `brunch`, and `lunch`. Without those commands building would be significantly harder as you would have to memorize the long command to invoke a build manually!
+
+But why do you need to run it after modifying a file? Well, `bash` cannot automatically detect changes in our files. To solve this, we either `source` it or log out and log back in, forcing `bash` to reload configuration files. Keep this in mind, because unlike configuration files, if you forget to `source` initialization files, build commands will not function!
+
 #### What if I need `repo` globally?
 
 If you need the `repo` tool to be available anywhere, you will need to first download `repo` to your home directory, move it with `sudo` and give it executable permissions. The exact commands are as follows:
@@ -114,7 +120,7 @@ Set up the build environment:
 
     . build/envsetup.sh
 
-Breaking down the command, `.` is for `source`. But what does `source` do? It gets aliases, functions and commands from the file and loads it into `bash` so it can be used. But what does `build/envsetup.sh` have? It has all the commands you need to execute a build. You need to do this every time you’re about to run a build, or `bash` will not be able to understand the build commands.
+This is the initialization file we talked about earlier up top. This "initializes" the environment, and imports a bunch of useful build commands required to build your device. Again, you need to remember to `source` this file every time you log out and log back in, or launch a new `bash`/Terminal instance.
 
 Define what device you’re going to build. For example, the Nexus 5X, has a codename of `bullhead`. You can check your specific device's codename on GitHub or on Google. Execute:
 
