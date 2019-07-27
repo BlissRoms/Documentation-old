@@ -1,13 +1,21 @@
 # Bliss Documentation
 Documentation for Bliss
 
-## What is this repository for?
+## Prerequisites
 
-This repository documents guides and other information to build BlissRoms, Bliss OS, and some of our other products. It also contains instructions on provisioning and other infrastructure details.
+ - [MkDocs](https://www.mkdocs.org)
+ - [MkDocs-material](https://squidfunk.github.io/mkdocs-material/)
+ - [Python 3+](https://www.python.org)
 
-## Structure
+## Building
 
- - [`blissroms/`](blissroms/index.md) - documents BlissRoms specific documentation
- - [`blissos/`](blissos/index.md) - documents Bliss OS specific documentation
- - [`common/`](common/index.md) - documents common documentation
- - [`infrastructure/`](infrastructure/index.md) - documents server provisioning and other miscellaneous details
+1. Clone the repo
+2. Run `mkdocs build`
+3. Deploy the `site` folder
+
+## Editing
+
+1. Clone the repo
+2. Add new content/edit in the `docs/` directory
+3. Preview your changes by running `mkdocs serve`
+4. Run [building](#building) above to deploy changes
