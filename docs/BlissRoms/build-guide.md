@@ -130,7 +130,27 @@ Okay, so we have the device tree set up. Feel free to browse around the source c
 
 will dump you back in the root of the source code tree. So if you’ve been going through folders and don’t have any idea where you are, you can use the above command. This command, however, requires you to have `source`d `build/envsetup.sh` earlier.
 
-So we’re ready to build! Run
+We're ready to build, but before we teach you the easy command to execute a build, we will first try the manual method. To set up the current terminal environment for building your particular device, execute:
+
+    lunch bliss_bullhead-userdebug
+
+Let's break down the command. `lunch` initializes the proper environmental variables required for the build tools to build your specific device. Things like `BLISS_DEVICE` and other variables are set in this stage, and the changed variables will be shown as output. `bliss_` is the ROM that we are building. As convention, all devices will have this prefix. `bullhead` is the specific device we are building - in this case, the Nexus 5X. Finally, `userdebug` means that we will build a user-debuggable variant. This is usually what most ROMs use for publishing their builds. Manufacturers typically use `user` which disables most of the useful Android Logcats.
+
+#### My device isn't booting, and `userdebug` won't print any `adb logcat`s. What gives?
+
+There is a third build variant called `eng`, short for engineering builds. These builds will activate `adb logcat` during boot, and will show you exactly what is going wrong, where, and why. However, these builds are **NOT** recommended for normal usage as they are not securely hardened, have log spam that will slow down your device, and other unexpected problems like userspace utilities crashing during runtime. If you want to submit your device for mainline, do **NOT** submit an `eng` build!
+
+All set? Let's start the building process. Run:
+
+`make blissify`
+
+And the build should start.
+
+#### I get an error about no `blissify` targets to build against, what's wrong?
+
+If you are building other ROMs, it is usually `make bacon`. For BlissRoms, we chose the build target of `blissify`. If that doesn't work, sometimes there is a bug, or the ROM developers do not implement a `bacon` target to build against. In this case, you will need to find what name they use to initialize a full build of the ROM. Conventionally, it is supposed to be `bacon`, but some ROM developers change this name inadvertently, or actually have a bug that causes the build target to never be found. If you cannot locate the build target, ask the developers of the ROM. Alternatively, you can try poking around in `build/make/core/Makefile` to see what the build target name is. But this is out of the scope of this article as you're not supposed to be building other ROMs (that's not what this tutorial is for, sorry!)
+
+All right, but that's annoying. You had to type **three** commands to build it all. What about running one command?
 
     brunch bullhead
 
@@ -147,9 +167,7 @@ Therefore, if you have already run `breakfast`, you can just run:
 
 The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
 
-#### I get an error about no `bacon` targets to build against, what's wrong?
 
-Sometimes there is a bug, or the ROM developers do not implement a `bacon` target to build against. In this case, you will need to find what name they use to initialize a full build of the ROM. Conventionally, it is supposed to be `bacon`, but some ROM developers change this name inadvertently, or actually have a bug that causes the build target to never be found. If you cannot locate the build target, ask the developers of the ROM. Alternatively, you can try poking around in `build/make/core/Makefile` to see what the build target name is.
 
 ### After building
 
