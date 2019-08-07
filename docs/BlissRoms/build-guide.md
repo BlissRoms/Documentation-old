@@ -152,9 +152,9 @@ If you are building other ROMs, it is usually `make bacon`. For BlissRoms, we ch
 
 All right, but that's annoying. You had to type **three** commands to build it all. What about running one command?
 
-    brunch bullhead
+    blissify bullhead
 
-But what is `brunch`? It is a compact form of these commands:
+But what is `blissify`? It is a compact form of these commands:
 
     breakfast bullhead
     lunch bliss_bullhead-userdebug
