@@ -172,7 +172,7 @@ If you face the latter, congratulations! You've successfully built BlissRoms for
 
     cd out/target/product/bullhead/
 
-In here, you’ll find a `.zip` that goes along the lines of `Bliss-v11.5-Stable-bullhead-UNOFFICIAL-20180213-0621.zip`. Install TWRP, flash the build to your device, and enjoy!
+In here, you’ll find a `.zip` that goes along the lines of `Bliss-v11.9-Stable-bullhead-UNOFFICIAL-20190531.zip`. Install TWRP, flash the build to your device, and enjoy!
 
 ### Troubleshooting
 
