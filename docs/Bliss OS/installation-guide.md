@@ -5,12 +5,21 @@
 
 These instructions are based on the Android-x86 project's installation guide. We have not changed the installer, so the procedure of installation is similar. We also thank @bg260 for his contributions - this guide was adapted partially from his work.
 
-*** Team Bliss will not accept any responsibility for users who have not read or understand the instructions, or any damage done to user machines due to lack of understanding all risks involved. You accept all responsibility by continuing beyond this point. *** 
+## Warning!
+
+Team Bliss **does NOT accept any responsibility**. Users must read and understand the instructions, as the installation modifies core system files and carries a significant risk. You **accept all responsibility**, including but not limited to data loss and other malfunctions by continuing beyond this point.
  
-*** Any questions, install issues, bug reports, etc will be delightfully ignored unless accompanied with a log, device info, build info, install method, and any other information required to diagnose your issue as NOT user error *** 
- 
- 
-These instructions have changed quite a bit for Android Pie, so consider this section a work in progress. Thank You
+Any questions, install issues, bug reports, etc. **MUST be** accompanied with the following things:
+
+ - Log
+ - Device info
+ - Build info (file name)
+ - Installation method (exact steps used)
+ - Any other relevant information REQUIRED to diagnose your issue as NOT user error
+
+If the following information is not supplied, your inquiry will be **ignored.**
+
+These instructions have changed quite a bit for Android Pie, so consider this section a **work in progress.** Thank you for your patience!
  
 Bootable USB Install For Bliss OS 11.x - MBR/UEFI/ESP (32/64bit) 
 ** This is the current recommended method **
