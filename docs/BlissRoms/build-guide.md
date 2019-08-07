@@ -144,7 +144,7 @@ All set? Let's start the building process. Run:
 
 `make blissify`
 
-And the build should start.
+And the build should start. The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
 
 #### I get an error about no `blissify` targets to build against, what's wrong?
 
@@ -157,15 +157,10 @@ All right, but that's annoying. You had to type **three** commands to build it a
 But what is `brunch`? It is a compact form of these commands:
 
     breakfast bullhead
-    mka bacon
+    lunch bliss_bullhead-userdebug
+    make blissify
 
-`brunch` will automatically pull the device trees again or check if it’s there already by running `breakfast`. Then it’ll call upon the build system to build a full `.zip` for your device.
-
-Therefore, if you have already run `breakfast`, you can just run:
-
-    mka bacon
-
-The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
+Sounds great, right? Once you have run the command, jump over to the next section.
 
 
 
