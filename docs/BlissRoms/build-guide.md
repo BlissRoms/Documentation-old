@@ -27,7 +27,7 @@ Install OpenJDK:
 
 To install the required build tools, run the following command:
 
-    sudo apt install bison build-essential curl flex git gnupg gperf liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev-i386 x11proto-core-dev libx11-dev ccache libgl1-mesa-dev unzip python
+    sudo apt install git gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev lib32z1-dev ccache libgl1-mesa-dev libxml2 libxml2-utils xsltproc unzip squashfs-tools python python-mako libssl-dev ninja-build lunzip syslinux syslinux-utils gettext genisoimage bc xorriso liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev lzop maven pngcrush schedtool lib32readline-dev
 
 ### Install source code tools
 
