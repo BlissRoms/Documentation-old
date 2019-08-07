@@ -25,7 +25,7 @@ Install OpenJDK:
 
 ### Install build tools
 
-For Ubuntu 18.x (or newer):
+To install the required build tools, run the following command:
 
     sudo apt install bison build-essential curl flex git gnupg gperf liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop maven pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev g++-multilib gcc-multilib lib32ncurses5-dev lib32readline-dev lib32z1-dev libc6-dev-i386 x11proto-core-dev libx11-dev ccache libgl1-mesa-dev unzip python
 
