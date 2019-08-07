@@ -1,3 +1,6 @@
+
+# Installation Guide
+
 The Instructions
 **These instructions are based on 
 the Android-x86 project's installation guide. We have not changed the installer, so all actions still apply. Also thanks to @bg260 for his contributions, this guide was adapted partially from his work**
