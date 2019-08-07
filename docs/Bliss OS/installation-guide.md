@@ -356,3 +356,9 @@ Then you can restart:
     reboot
 
 It should recognize and load the correct firmware versions for your device upon reboot if you did everything correctly.
+
+## Conclusion
+
+Thanks for following along! If you want to check out the next guide, [click here!](extras.md)
+
+Having problems with your new installation? [Check out Troubleshooting.](troubleshooting.md)
