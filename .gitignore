@@ -1,2 +1,5 @@
+# Ignore built artifacts
 site/
+
+# Ignore macOS files
 .DS_Store
