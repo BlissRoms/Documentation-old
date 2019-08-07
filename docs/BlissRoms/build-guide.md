@@ -15,7 +15,7 @@ Let’s get started.
 
 To get started, you need a computer with Ubuntu 18.04 (LTS), at least 200GB space of HDD, and at least 8GB RAM. A decent CPU (or CPUs if you have a server motherboard) is recommended. Other distros can work but is not officially supported in this guide.
 
-You may try building on crappy hardware but there is no guarantee your build will succeed or even function at all.
+Underpowered machines may crash during compilation. If that happens, you may try and restart the build as most crashes are caused by lack of memory. If your storage space has run out, then you will need to build on a different hard drive.
 
 ### Install the JDK
 
