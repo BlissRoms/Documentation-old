@@ -13,7 +13,7 @@ Let’s get started.
 
 ### Preparation
 
-Prerequisites of this guide: Linux box, at least 200GB space of HDD, at least 8GB RAM. A decent CPU (or CPUs if you have a server motherboard) is recommended.
+To get started, you need a computer with Ubuntu 18.04, at least 200GB space of HDD, and at least 8GB RAM. A decent CPU (or CPUs if you have a server motherboard) is recommended. Other distros can work but is not officially supported in this guide.
 
 You may try building on crappy hardware but there is no guarantee your build will succeed or even function at all.
 
