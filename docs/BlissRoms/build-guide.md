@@ -33,7 +33,7 @@ To install the required build tools, run the following command:
 
 Now we need to get the source code via a program named `repo`, made by Google. The primary function of `repo` is to read a manifest file located in BlissRoms's GitHub organization, and find what repositories you need to actually build Android.
 
-Create a `~/bin` directory for `repo` to live in:
+Create a `~/bin` directory for `repo`:
 
     mkdir -p ~/bin
 
