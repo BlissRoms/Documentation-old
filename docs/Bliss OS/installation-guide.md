@@ -1,10 +1,10 @@
 
 # Installation Guide
 
-The Instructions
-**These instructions are based on 
-the Android-x86 project's installation guide. We have not changed the installer, so all actions still apply. Also thanks to @bg260 for his contributions, this guide was adapted partially from his work**
- 
+## Preface
+
+These instructions are based on the Android-x86 project's installation guide. We have not changed the installer, so the procedure of installation is similar. We also thank @bg260 for his contributions - this guide was adapted partially from his work.
+
 *** Team Bliss will not accept any responsibility for users who have not read or understand the instructions, or any damage done to user machines due to lack of understanding all risks involved. You accept all responsibility by continuing beyond this point. *** 
  
 *** Any questions, install issues, bug reports, etc will be delightfully ignored unless accompanied with a log, device info, build info, install method, and any other information required to diagnose your issue as NOT user error *** 
