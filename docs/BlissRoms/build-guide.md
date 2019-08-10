@@ -151,9 +151,15 @@ There is a third build variant called `eng`, short for engineering builds. These
 
 All set? Let's start the building process. Run:
 
-`make blissify`
+`mka blissify`
 
 And the build should start. The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
+
+#### Why `mka` and not `make`?
+
+`make` only runs with 1 thread. `mka` is properly aliased to use all of your threads by checking `nproc`.
+
+If you want to customize your thread count (maybe you're building with a fan-screaming laptop in a quiet coffee shop), use `make -j#`, replacing the hash with the number of threads (example of `make -j4`).
 
 #### I get an error about no `blissify` targets to build against, what's wrong?
 
