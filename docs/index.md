@@ -7,6 +7,7 @@ Welcome to the documentation, written by developers of Team Bliss!
  - Don't know how to install? [We've got you covered.](Bliss OS/installation-guide.md)
  - Install didn't go as smoothly as you expected? [Troubleshoot why.](Bliss OS/troubleshooting.md)
  - Want Netflix? Want Gapps? [You need the extras.](Bliss OS/extras.md)
+ - Ready to build? [Start here with our build Guide.](Bliss OS/build-guide.md)
 
 ## [BlissRoms (arm/arm64)](BlissRoms/index.md)
 
