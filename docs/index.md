@@ -1,4 +1,4 @@
-![alt text](https://i.imgur.com/0GnrwaU.png "Bliss ROMs Logo")
+![BlissRoms Logo](https://i.imgur.com/0GnrwaU.png)
 
 # Index
 
