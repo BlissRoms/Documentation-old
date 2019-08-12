@@ -126,7 +126,7 @@ This means that there are 24 threads in your machine.
 This will build an x86 based .ISO for PCs.
 
 Usage: `$ bash build-x86.sh options buildVariants blissBranch extraOptions`
-Options: 
+Options:
 
 	-c | --clean : Does make clean && make clobber and resets the efi device tree
 	-s | --sync: Repo syncs the rom (clears out patches), then reapplies patches to needed repos
@@ -142,38 +142,38 @@ BuildVariants:
 	android_x86_64-userdebug |: Make userdebug build
 	android_x86_64-eng : Make eng build
 
-BlissBranch: 
+BlissBranch:
 
 	select which bliss branch to sync, default is p9.0
 
   ExtraOptions:
-  
+
 	foss : packages microG & FDroid with the build
 	go : packages Gapps Go with the build
 	gapps : packages OpenGapps with the build
 	gms : packages GMS with the build (requires private repo access)
-	none : force all extraOption flags to false. 
+	none : force all extraOption flags to false.
 
- To start, you must first use the -s (--sync) flag, then on following builds, it is not needed. Initial generation of the proprietary files from ChromeOS are also needed on the first build. We are able to use the -r (--proprietary) flag for that. 
+To start, you must first use the -s (--sync) flag, then on following builds, it is not needed. Initial generation of the proprietary files from ChromeOS are also needed on the first build. We are able to use the -r (--proprietary) flag for that.
 __This step needs to be on its own because the mounting process requires root permissions, so keep a look out for it asking for your root password__.
-  
- First you must sync with the new manifest changes:
 
-	bash build-x86.sh -p 
+First you must sync with the new manifest changes:
 
-This will do initial patching. Some of the patches will show as `already applied` or `conflict`. This is normal behavior and will not effect the build process if you continue to the next step without addressing any of the conflicts. 
+	bash build-x86.sh -p
 
-__The only times you should worry about the conflicts is when you are adding or changing patches in `vendor/x86`__. 
+This will do initial patching. Some of the patches will show as `already applied` or `conflict`. This is normal behavior and will not effect the build process if you continue to the next step without addressing any of the conflicts.
 
-  
- Next step is to download the proprietary files from ChromeOS:
-  
+__The only times you should worry about the conflicts is when you are adding or changing patches in `vendor/x86`__.
+
+
+Next step is to download the proprietary files from ChromeOS:
+
 	mkdir vendor/bliss_priv/proprietary
-	mkdir vendor/bliss_priv/source	    
-	bash build-x86.sh -r android_x86_64-userdebug 
-    
- After that, you can build your release file:
-  
+	mkdir vendor/bliss_priv/source
+	bash build-x86.sh -r android_x86_64-userdebug
+
+After that, you can build your release file:
+
 	bash build-x86.sh android_x86_64-userdebug (to build the userdebug version for x86_64 CPUs)
 
 ## Advanced Build Instructions
@@ -200,7 +200,7 @@ Let's break down the command. `lunch` initializes the proper environmental varia
 
 There is a third build variant called `eng`, short for engineering builds. These builds will activate `adb logcat` during boot, and will show you exactly what is going wrong, where, and why. However, these builds are **NOT** recommended for normal usage as they are not securely hardened, have log spam that will slow down your device, and other unexpected problems like userspace utilities crashing during runtime. If you want to submit your device for mainline, do **NOT** submit an `eng` build!
 
-If this is the first time you're running the build, you're going to want to run the proprietary build command first from the easy build instructions. Alternatively, you could also run those commands manually. 
+If this is the first time you're running the build, you're going to want to run the proprietary build command first from the easy build instructions. Alternatively, you could also run those commands manually.
 
 	mkdir vendor/bliss_priv/proprietary && mkdir vendor/bliss_priv/source
 
@@ -230,16 +230,16 @@ If you face the latter, congratulations! You've successfully built BlissRoms for
 
     cd out/target/product/x86_64/
 
-In here, you’ll find an `.iso` that goes along the lines of `Bliss-v11.9--OFFICIAL-20190801-1619_x86_64_k-k4.9.153_m-18.3.5-pie-x86-llvm80_f-dev-kernel.org.iso`. 
+In here, you’ll find an `.iso` that goes along the lines of `Bliss-v11.9--OFFICIAL-20190801-1619_x86_64_k-k4.9.153_m-18.3.5-pie-x86-llvm80_f-dev-kernel.org.iso`.
 
 ## Changing the target kernel branch
 
-Sometimes, you might be working on a device that requires a different kernel branch. In order to switch kernels effectively on Bliss OS, they need to be compiled with the OS at build time. 
+Sometimes, you might be working on a device that requires a different kernel branch. In order to switch kernels effectively on Bliss OS, they need to be compiled with the OS at build time.
 
 ### Switching the kernel branch
 
 Start off by entering the kernel folder
-	
+
 	cd kernel
 
 Then pull all the available kernel branched from your target repo. In this case, we are using the default `BR-x86` repo
@@ -247,7 +247,7 @@ Then pull all the available kernel branched from your target repo. In this case,
 	git fetch BR-x86
 
 Then after that is finished, we need to checkout our target branch, and in this example we are choosing our `k4.19.50-ax86-ga` branch, which has added commits from the GalliumOS project for Chromebooks
-	
+
 	git checkout BR-x86/k4.19.50-ax86-ga
 
 Next step is to clean out any configs or generated files from the previously checked out kernel. To do this, run these commands
@@ -261,38 +261,38 @@ Once that is done, we can `cd` back to our main project folder
 
 And run our build command again to generate the `.iso` with the target kernel we selected
 
-	rm -rf out/target/product/x86_64/kernel 
+	rm -rf out/target/product/x86_64/kernel
 	mka iso_img
 
 ## Using the patch system for testing
 
-We use a patching method we adapted for Bliss from Intel's Project Celadon & phh-treble. This patching system allows us to bring in a good number of commits to add to the OS, and test how they apply or if there are any conflicts. 
+We use a patching method we adapted for Bliss from Intel's Project Celadon & phh-treble. This patching system allows us to bring in a good number of commits to add to the OS, and test how they apply or if there are any conflicts.
 
-Our intention was to make a system that can add all the needed x86/x86_64 commits to BlissROM, as well as other ROMs too. 
+Our intention was to make a system that can add all the needed x86/x86_64 commits to BlissROM, as well as other ROMs too.
 
-The majority of this system is found in `vendor/x86/utils`. 
+The majority of this system is found in `vendor/x86/utils`.
 
-From here, you simply generate the `.patch` files from your additions, and add them to the mix. 
-In the following example, we are going to generate patches from `packages/apps/Settings` and add them to the proper folder for live testing. 
+From here, you simply generate the `.patch` files from your additions, and add them to the mix.
+In the following example, we are going to generate patches from `packages/apps/Settings` and add them to the proper folder for live testing.
 
 From your Project folder:
-	
+
 	cd packages/apps/Settings
 
 And generate your `.patch` files. For this example, we've added four commits on top of what was there after sync
-	
+
 	git format-patch -4
 
 Then copy those files to the proper folder in `vendor/x86`. In this case, you will find it here:
-	
+
 	vendor/x86/utils/android_p/google_diff/x86
 
-After that is complete, you can `make clean` and run the patch system from your main project folder. 
+After that is complete, you can `make clean` and run the patch system from your main project folder.
 
-	make clean 
-	bash build-x86.sh -p 
+	make clean
+	bash build-x86.sh -p
 
-This should start patching all the source files. Once that is complete, you can rebuild. 
+This should start patching all the source files. Once that is complete, you can rebuild.
 
 ## Troubleshooting
 
