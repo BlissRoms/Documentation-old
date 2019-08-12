@@ -1,4 +1,4 @@
-# Bliss OS Build Guide
+# Build Guide
 
 ## Introduction
 
