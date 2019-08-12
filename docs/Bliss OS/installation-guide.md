@@ -55,6 +55,7 @@ Plug in your USB drive, and load up Rufus. Once loaded, click on the icon next t
 **This is very important!** If you, as a user, **do NOT** test the OS first to make sure it is compatible with your device, please **do NOT** expect us to help you if you happen to install it blindly and something goes wrong.
 
 Reboot your machine, and enter the BIOS. Most motherboards have the default key as "F2". Change the boot order so that the USB is the first thing the device will boot to. Once the boot orders are changed, reboot. If everything goes well, you should see a `grub` boot screen. Select the "Live CD" option, and if your machine is compatible, you should then see a little bit of text, and then the Bliss OS boot animation. This will go on for a few minutes, but should eventually boot to Bliss OS. If the system never boots to Bliss OS, this is a bad sign that your system might not be compatible. If it does boot, and you would like to install it, continue to the next step.
+For those wanting to use root, you will need to install the OS and be running of that install. Root will not function properly in Live Mode. 
 
 #### Troubleshooting - Booting from the USB kicks me back to BIOS, or back to my Windows/macOS/Linux installation.
 
@@ -76,7 +77,7 @@ Boot up the Bliss OS USB, and select the "Installation" option in `grub`. (It is
 
 The installer will load, and you will have an option to choose the partition you created earlier. Pick it, and select `ext4`. **DO NOT** blindly choose the partition, as an incorrect flash can mess up your drive and cause serious data loss. **You do NOT want to get this step wrong.** If you are unsure, boot back into Windows/macOS/Linux and write it down.
 
-When it asks if you want to install system as R/W, select "YES".
+When it asks if you want to install system as R/W, select "YES" if you want to use root (SuperSU), and "No" if you do not need root.
 
 When it asks if you want to install `grub`, select "Grub for Legacy BIOS boot type", "Grub2 for UEFI boot type", or neither if you are already running a Linux system. If you chose to install `grub`, the installer will allow you to choose the partition to install `grub` to. Make sure you select the 300 MB partition you set up earlier for `grub`.
 
@@ -95,6 +96,8 @@ For the overall instructions on using this method, please refer to the [tool's o
 ### Part 1 - Using the Installer
  
 The installer has been updated to accept the `.iso` files for our 8.x/10.x/11.x releases. Just follow the prompts the installer gives. Refer to the original thread for any questions, and please search before asking.
+
+If you plan on using root, the process will require you to manually extract the system.img from within the system.sfs file. Then you must delete the system.sfs file after extracting. 
 
 **Warning** - for Pie, you will need to add `androidboot.hardware=android_x86_64` to the grub entry in order to boot!
  
