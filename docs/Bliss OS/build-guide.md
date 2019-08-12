@@ -1,35 +1,33 @@
 # Bliss OS Build Guide
 
-## Updated for Pie (p9.0)
+## Introduction
 
-### Introduction
-
-This is the official guide to build Bliss OS for PC's. In this guide, we will only cover building for x86 & x86_64 devices. We will also go over the details of using the patch system for testing and recompiling a build with a different kernel branch.
+This is the official guide to build Bliss OS for PCs. In this guide, we will only cover building for x86 & x86_64 devices. We will also go over the details of using the patch system for testing and recompiling a build with a different kernel branch.
 
 The golden rule to building is patience. If something breaks, pay attention to the console output or take logs of the issue and ask for guidance in our build support chat.
 
 Let’s get started.
 
-### Preparation
+## Preparation
 
 To get started, you need a computer with Ubuntu 18.04 (LTS), at least 200GB space of HDD, and at least 8GB RAM. A decent CPU (or CPUs if you have a server motherboard) is recommended. Other distros can work but is not officially supported in this guide.
 
 Underpowered machines may crash during compilation. If that happens, you may try and restart the build as most crashes are caused by lack of memory. If your storage space has run out, then you will need to build on a different hard drive.
 
-### Install the JDK
+## Install the JDK
 
 Install OpenJDK:
 
     sudo apt install openjdk-8-jdk
 
-### Install build tools
+## Install build tools
 
 To install the required build tools, run the following command:
 
-    $ sudo apt-get install git-core gnupg flex bison maven gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386  lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip squashfs-tools python-mako libssl-dev ninja-build lunzip syslinux syslinux-utils gettext genisoimage gettext bc xorriso libncurses5
+    sudo apt-get install git-core gnupg flex bison maven gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386  lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip squashfs-tools python-mako libssl-dev ninja-build lunzip syslinux syslinux-utils gettext genisoimage gettext bc xorriso libncurses5
 
 
-### Install source code tools
+## Install source code tools
 
 Now we need to get the source code via a program named `repo`, made by Google. The primary function of `repo` is to read a manifest file located in Bliss OS's GitHub organization, and find what repositories you need to actually build Android.
 
@@ -62,13 +60,13 @@ Which can be shortened to:
 
     . .bashrc
 
-#### What is `source`?
+### What is `source`?
 
 `source` is a `bash` command to read aliases, functions, and commands from the specified file. Typically, you'll supply `bash` with a configuration file such as `.bashrc` or `.bash_profile`, or an initialization file such as `envsetup.sh`. The difference is that while the configuration file lists configuration and user-defined aliases and functions, initialization files typically hold build commands such as `breakfast`, `brunch`, and `lunch`. Without those commands building would be significantly harder as you would have to memorize the long command to invoke a build manually!
 
 But why do you need to run it after modifying a file? Well, `bash` cannot automatically detect changes in our files. To solve this, we either `source` it or log out and log back in, forcing `bash` to reload configuration files. Keep this in mind, because unlike configuration files, if you forget to `source` initialization files, build commands will not function!
 
-#### What if I need `repo` globally?
+### What if I need `repo` globally?
 
 If you need the `repo` tool to be available anywhere, you will need to first download `repo` to your home directory, move it with `sudo` and give it executable permissions. The exact commands are as follows:
 
@@ -80,7 +78,7 @@ If you need the `repo` tool to be available anywhere, you will need to first dow
 
 Now we’re ready to download the source code.
 
-### Download
+## Download
 
 Create a directory for the source:
 
@@ -112,7 +110,7 @@ Problems syncing? :
 
 `-c` is for pulling in only the current branch, instead of the entire history. This is useful if you need the downloads fast and don’t want the entire history to be downloaded. This is used by default unless specified otherwise.
 
-#### I still don't know how much CPU threads I have. How do I check?
+### I still don't know how much CPU threads I have. How do I check?
 
 Run `nproc`. The output should be something like this:
 
@@ -125,7 +123,7 @@ This means that there are 24 threads in your machine.
 
 ## Easy Build Instructions
 
-This will build an x86 based .ISO for PCs
+This will build an x86 based .ISO for PCs.
 
 Usage: `$ bash build-x86.sh options buildVariants blissBranch extraOptions`
 Options: 
@@ -198,7 +196,7 @@ For 64 bit devices:
 
 Let's break down the command. `lunch` initializes the proper environmental variables required for the build tools to build your specific device. Things like `BLISS_DEVICE` and other variables are set in this stage, and the changed variables will be shown as output. `x86` or `x86_64` is the specific device we are building. Finally, `userdebug` means that we will build a user-debuggable variant. This is usually what most ROMs use for publishing their builds. Manufacturers typically use `user` which disables most of the useful Android Logcats.
 
-#### My device isn't booting, and `userdebug` won't print any `adb logcat`s. What gives?
+### My device isn't booting, and `userdebug` won't print any `adb logcat`s. What gives?
 
 There is a third build variant called `eng`, short for engineering builds. These builds will activate `adb logcat` during boot, and will show you exactly what is going wrong, where, and why. However, these builds are **NOT** recommended for normal usage as they are not securely hardened, have log spam that will slow down your device, and other unexpected problems like userspace utilities crashing during runtime. If you want to submit your device for mainline, do **NOT** submit an `eng` build!
 
@@ -218,13 +216,13 @@ After that is complete, we can start the main building process. Run:
 
 And the build should start. The build process will take a long time. Prepare to wait a few hours, even on a decent machine.
 
-#### Why `mka` and not `make`?
+### Why `mka` and not `make`?
 
 `make` only runs with 1 thread. `mka` is properly aliased to use all of your threads by checking `nproc`.
 
 If you want to customize your thread count (maybe you're building with a fan-screaming laptop in a quiet coffee shop), use `make -j#`, replacing the hash with the number of threads (example of `make -j4`).
 
-### After building
+## After building
 
 There are two outcomes to a build - either it fails and you get a red error message from `make`, or it succeeds and you see the Bliss logo in ASCII. If you encounter the former, you need to go back and fix whatever it's complaining about. Typically, 90% of the time the problem will be in your device tree. For the other 10%, submit a bug report to the ROM developers. Be sure to include the full log of your build to help diagnose the problem, and your device tree.
 
@@ -234,11 +232,11 @@ If you face the latter, congratulations! You've successfully built BlissRoms for
 
 In here, you’ll find an `.iso` that goes along the lines of `Bliss-v11.9--OFFICIAL-20190801-1619_x86_64_k-k4.9.153_m-18.3.5-pie-x86-llvm80_f-dev-kernel.org.iso`. 
 
-### Changing the target kernel branch
+## Changing the target kernel branch
 
 Sometimes, you might be working on a device that requires a different kernel branch. In order to switch kernels effectively on Bliss OS, they need to be compiled with the OS at build time. 
 
-#### Switching the kernel branch
+### Switching the kernel branch
 
 Start off by entering the kernel folder
 	
@@ -266,7 +264,7 @@ And run our build command again to generate the `.iso` with the target kernel we
 	rm -rf out/target/product/x86_64/kernel 
 	mka iso_img
 
-### Using the patch system for testing
+## Using the patch system for testing
 
 We use a patching method we adapted for Bliss from Intel's Project Celadon & phh-treble. This patching system allows us to bring in a good number of commits to add to the OS, and test how they apply or if there are any conflicts. 
 
@@ -296,7 +294,7 @@ After that is complete, you can `make clean` and run the patch system from your 
 
 This should start patching all the source files. Once that is complete, you can rebuild. 
 
-### Troubleshooting
+## Troubleshooting
 
 If your build failed, there are a couple things you can try.
 
@@ -308,7 +306,7 @@ If your build failed, there are a couple things you can try.
 
 If something goes wrong and you've tried everything above, first use Google to look up your error! Most of the errors you encounter is due to misconfiguration and wrong commands entered. More often than not, Google will have the answer you are looking for. If you're still stuck and nothing fixes the problem, then ask us via our Telegram Build Support chat.
 
-### Conclusion
+## Conclusion
 
 Building a ROM is very hard and tedious and the results are very rewarding! If you managed to follow along, congratulations!
 
