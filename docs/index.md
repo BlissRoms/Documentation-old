@@ -18,6 +18,7 @@ Welcome to the documentation, written by developers of Team Bliss!
 
 ## [Common Documentation](common/index.md)
 
+ - Before anything else, [learn how to maintain proper authorship.](common/maintaining-proper-authorship.md)
  - [Start with this essential guide, which teaches you about the fundamentals of ROM building.](common/git-started.md)
  - Getting tired of reviewing commits? [Try mass reviewing commits.](common/using-dippy-bird.md)
 
