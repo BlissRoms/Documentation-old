@@ -3,7 +3,7 @@
 
 ## 32-bit processors only (Intel Atom and similar)
 
-1. Install Android-x86 32-bit OS from https://www.android-x86.org/ (doesn't matter which version, as long as it's 32-bit)
+1. Install [Android-x86 32-bit OS from here](https://www.android-x86.org/) (doesn't matter which version, as long as it's 32-bit)
 2. Update with Bliss OS 32-bit (current version is 11.9). After reboot you should be able to access the `grub` menu.
 3. In `grub` menu select "Debug mode"
 4. Run the following commands:
