@@ -10,7 +10,7 @@
     <pre>```
 mount -o remount, rw /mnt
 cd /mnt/grub
-vi menu.lst
+nano menu.lst
     ```</pre>
 5. Add `nomodeset` before every "SCR=**" line. For example, your configuration should look something like this:
     <pre>```
