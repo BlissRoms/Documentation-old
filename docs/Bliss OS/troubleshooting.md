@@ -1,6 +1,32 @@
 
 # Troubleshooting
 
+## 32-bit processors only (Intel Atom and similar)
+
+1. Install Android-x86 32-bit OS from https://www.android-x86.org/ (doesn't matter which version, as long as it's 32-bit)
+2. Update with Bliss OS 32-bit (current version is 11.9). After reboot you should be able to access the `grub` menu.
+3. In `grub` menu select "Debug mode"
+4. Run the following commands:
+    <pre>```
+mount -o remount, rw /mnt
+cd /mnt/grub
+vi menu.lst
+    ```</pre>
+5. Add `nomodeset` before every "SCR=**" line. For example, your configuration should look something like this:
+    <pre>```
+nomodeset
+SCR=700
+nomodeset
+SCR=716
+nomodeset
+SCR=795
+    ```</pre>
+6. Press Ctrl+O to save, and then Ctrl+X to close.
+7. Type `reboot -f`
+
+You should be finished! If all goes well you will boot into Bliss OS on your 32-bit machine.
+
+
 ## `grub2` kernel parameters and options 
 
 **You will want to pay attention here!** With Bliss OS on the PC, we tend to use quite a few command line options to get things working right. We've gathered a few of them here to explain them a little bit.
