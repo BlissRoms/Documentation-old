@@ -12,14 +12,27 @@ mount -o remount, rw /mnt
 cd /mnt/grub
 nano menu.lst
     ```</pre>
-5. Add `nomodeset` before every "SCR=**" line. For example, your configuration should look something like this:
+5. Add `nomodeset` before every `SCR=/bliss...` line. For example, your configuration should look something like this:
     <pre>```
-nomodeset
-SCR=700
-nomodeset
-SCR=716
-nomodeset
-SCR=795
+default=0
+timeout=6
+splashimage=/grub/android-x86.xpm.gz
+root (hd0,0)
+title Bliss-OS 11.7
+    kernel /bliss-x86-11.7/kernel quiet root=/dev/ram0 androidboot.selinux=permissive androidboot.hardware=android_x86 vmalloc=192M androidboot.hardware=android_x86_64 nomodeset SRC=/bliss-x86-11.7
+    initrd /bliss-x86-11.7/initrd.img
+title Bliss-OS 11.7 (Legacy modprobe mode)
+    kernel /bliss-x86-11.7/kernel root=/dev/ram0 androidboot.selinux=permissive androidboot.hardware=android_x86 vmalloc=192M androidboot.hardware=android_x86_64 AUTO_LOAD=old nomodeset SRC=/bliss-x86-11.7
+    initrd /bliss-x86-11.7/initrd.img
+title Bliss-OS 11.7 (Debug mode)
+    kernel /bliss-x86-11.7/kernel root=/dev/ram0 androidboot.selinux=permissive androidboot.hardware=android_x86 vmalloc=192M DEBUG=2 androidboot.hardware=android_x86_64 nomodeset SRC=/bliss-x86-11.7
+    initrd /bliss-x86-11.7/initrd.img
+title Bliss-OS 11.7 (Debug nomodeset)
+    kernel /bliss-x86-11.7/kernel nomodeset root=/dev/ram0 androidboot.selinux=permissive androidboot.hardware=android_x86 vmalloc=192M DEBUG=2 androidboot.hardware=android_x86_64 nomodeset SRC=/bliss-x86-11.7
+    initrd /bliss-x86-11.7/initrd.img
+title Bliss-OS 11.7 (Debug video=LVDS-1:d)
+    kernel /bliss-x86-11.7/kernel video=LVDS-1:d root=/dev/ram0 androidboot.selinux=permissive androidboot.hardware=android_x86 vmalloc=192M DEBUG=2 nomodeset SRC=/bliss-x86-11.7
+    initrd /bliss-x86-11.7/initrd.img
     ```</pre>
 6. Press Ctrl+O to save, and then Ctrl+X to close.
 7. Type `reboot -f`
