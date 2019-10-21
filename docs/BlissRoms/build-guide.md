@@ -1,7 +1,7 @@
 
 # Build Guide
 
-## Currently being updated for Android 10 (q)
+## Updated for Android 10 (q)
 
 ### Introduction
 
