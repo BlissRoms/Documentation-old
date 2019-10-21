@@ -159,7 +159,7 @@ And the build should start. The build process will take a long time. Prepare to 
 
 `make` only runs with 1 thread. `mka` is properly aliased to use all of your threads by checking `nproc`.
 
-If you want to customize your thread count (maybe you're building with a fan-screaming laptop in a quiet coffee shop), use `make -j#`, replacing the hash with the number of threads (example of `make -j4`).
+If you want to customize your thread count (maybe you're building with a fan-screaming laptop in a quiet coffee shop), use `make blissify -j#`, replacing the hash with the number of threads (example of `make blissify -j4`).
 
 #### I get an error about no `blissify` targets to build against, what's wrong?
 
