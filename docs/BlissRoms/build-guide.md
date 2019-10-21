@@ -94,9 +94,9 @@ Before we download, we need to tell `repo` and `git` who we are. Run the followi
 
 Now, we’re ready to initialize. We need to tell `repo` which manifest to read:
 
-    repo init -u https://github.com/BlissRoms/platform_manifest.git -b p9.0
+    repo init -u https://github.com/BlissRoms/platform_manifest.git -b q
 
-`-b` is for the branch, and we’re on `p9.0`, Android Pie. It’ll take a couple of seconds. You may need to type `y` for the color prompt.
+`-b` is for the branch, and we’re on `q`, Android 10. It’ll take a couple of seconds. You may need to type `y` for the color prompt.
 
 Then sync the source:
 
