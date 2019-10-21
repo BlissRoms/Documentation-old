@@ -37,3 +37,16 @@ This will review all commits that match the following criteria:
  - Has the topic `test`
 
 And will apply +2 code-review and +1 verify, indicating that you have tested the commits on an actual device. This means that the commits are now ready for merging.
+
+### Submitting commits (admins only)
+
+To submit commits that are already reviewed, run:
+
+    php dippy-bird.php --username=jackeagle --server=review.blissroms.com --port=29418 -q="status:open topic:test" -a=submit
+
+This will submit all commits that match the following criteria:
+
+ - Is open for review (not closed, merged, or abandoned)
+ - Has the topic `test`
+
+And will push them to our main GitHub. If the commits are not reviewed yet, or if they do not have the verified tag, this command will fail for the patchsets that are not reviewed yet. Other commits will still be merged.
