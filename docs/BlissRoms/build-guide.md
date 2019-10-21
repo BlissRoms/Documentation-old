@@ -1,7 +1,7 @@
 
 # Build Guide
 
-## Updated for Pie (p9.0)
+## Currently being updated for Android 10 (q)
 
 ### Introduction
 
