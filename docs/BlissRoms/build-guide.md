@@ -68,18 +68,6 @@ Which can be shortened to:
 
 But why do you need to run it after modifying a file? Well, `bash` cannot automatically detect changes in our files. To solve this, we either `source` it or log out and log back in, forcing `bash` to reload configuration files. Keep this in mind, because unlike configuration files, if you forget to `source` initialization files, build commands will not function!
 
-#### What if I need `repo` globally?
-
-If you need the `repo` tool to be available anywhere, you will need to first download `repo` to your home directory, move it with `sudo` and give it executable permissions. The exact commands are as follows:
-
-    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
-    sudo mv ~/repo /usr/bin/
-    chmod a+x /usr/bin/repo
-
-`repo` will now work anywhere, without any `.bashrc` modifications. However, these steps aren’t recommended as `repo` might become a security risk if a vulnerability is found.
-
-Now we’re ready to download the source code.
-
 ### Download
 
 Create a directory for the source:
