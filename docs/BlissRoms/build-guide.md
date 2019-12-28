@@ -90,7 +90,7 @@ Then sync the source:
 
     repo sync -j$(nproc --all) -c
 
-
+*Note: For more information about the `repo` tool, visit the [Build Tips guide](build-tips.md) to learn more about the [repo flags](build-tips.md#repo-optimization-tips).*
 
 #### I still don't know how much CPU threads I have. How do I check?
 
