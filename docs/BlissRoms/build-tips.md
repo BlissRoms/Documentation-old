@@ -87,15 +87,3 @@ Copy the following into your `~/.bashrc`:
     }
 
 To use this, `source ~/.bashrc` and then run `gcp <GitHub commit URL here>`.
-
-## Make and go inside
-
-This is a quick way to create and go inside a folder. Once again, copy this to your `~/.bashrc`:
-
-    function mkcdir ()
-    {
-        mkdir -p -- "$1" &&
-        cd -P -- "$1"
-    }
-
-Don't forget to `source`, and run `mkcdir <directory name>`.
