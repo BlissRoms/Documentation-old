@@ -176,7 +176,7 @@ If your build failed, there are a couple things you can try.
 * Make sure your computer meets minimum requirements to compile AOSP. Chances are, you need more memory/CPU power to complete a build.
 * Make sure your computer isn't faulty. This is unlikely, but to check, use a stress-test program like Prime95.
 
-If something goes wrong and you've tried everything above, first use Google to look up your error! Most of the errors you encounter is due to misconfiguration and wrong commands entered. More often than not, Google will have the answer you are looking for. If you're still stuck and nothing fixes the problem, then ask us via our Telegram Build Support chat.
+If something goes wrong and you've tried everything above, first use Google to look up your error! Most of the errors you encounter is due to misconfiguration and wrong commands entered. More often than not, Google will have the answer you are looking for. If you're still stuck and nothing fixes the problem, then ask us via [our Telegram Build Support chat.](https://t.me/Team_Bliss_Build_Support) (Please only ask issues about BlissRoms, not other custom ROMs as we are unable to assist with those!)
 
 ### Conclusion
 
