@@ -37,15 +37,15 @@ Open up `~/.bashrc` and add these lines:
 
 This way, next time you want to sync, just type `reposync` and `bash` will substitute the command for you. Easy! Just don't forget to `source ~/.bashrc` otherwise `bash` will not know of this new alias.
 
-## Reset tree
+## Delete all device trees and local manifests
 
-**Warning! Very destructive tip. Do not use if you don't know what you are doing!**
+**WARNING**: If you have any changes in your device trees, commit them and push them to a remote repository. This tip will permanently delete your local changes, so back them up!
 
-While messing around with device specific folders, you may break something and the build process might not work. Or, you may have multiple devices synced and you want to delete it all and start over. However, you might have limited bandwidth, and might not want to download the source over again.
+While messing around with device specific folders, you may break something and the build process might not work. Or, you may have multiple devices synced and you want to delete it all and start over. This tip/command will let you delete only the device trees.
 
 Add this function to your `~/.bashrc`:
 
-    # Script to clean the source
+    # Remove all device trees/local manifests
     function resettree() {
         rm -rf device kernel vendor out .repo/local_manifests
         reposync
@@ -63,7 +63,7 @@ Let's go over what this does, word by word:
 
 The last line is important, because by deleting the `vendor` folder, we also delete some crucial files for building Bliss. To fix that, we rerun a sync. Note that because we did not delete any other folders, syncing and updating files only take a fraction of a time compared to starting from scratch.
 
-To use this, after copying, don't forget to `source ~/.bashrc`. Then, run `resettree` at the base folder of the source code. Once you're done, don't forget to initialize a new device using `breakfast <devicename>`.
+After running `resettree`, make sure to initialize a new tree by running `breakfast <devicename>`.
 
 ## GitHub cherry-pick
 
