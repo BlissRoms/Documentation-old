@@ -174,7 +174,7 @@ If your build failed, there are a couple things you can try.
 * Make sure you’re at the root of the build tree. Again, to quickly jump there, use `croot`.
 * Make sure you ran `breakfast` correctly and it did not error out. Missing device files will prevent successful builds.
 * Make sure your computer meets minimum requirements to compile AOSP. Chances are, you need more memory/CPU power to complete a build.
-* Make sure your computer itself isn’t faulty. HDDs usually die first, followed by RAM. SSDs rarely die but failure is not unheard of.  In extremely rare cases, your CPU may have a defect. If you're unsure, run a stress test using a program like Prime95.
+* Make sure your computer isn't faulty. This is unlikely, but to check, use a stress-test program like Prime95.
 
 If something goes wrong and you've tried everything above, first use Google to look up your error! Most of the errors you encounter is due to misconfiguration and wrong commands entered. More often than not, Google will have the answer you are looking for. If you're still stuck and nothing fixes the problem, then ask us via our Telegram Build Support chat.
 
