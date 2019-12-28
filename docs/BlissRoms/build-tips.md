@@ -6,15 +6,27 @@ Here's a collective list of things you can try to improve your builds. Have fun!
 
 ### Threads
 
-By default, `repo` only utilizes four threads (or whatever the ROM manifest declares.) If you have a stronger machine with more threads, you can increase this number. So, for example, if you have 24 threads, you would type:
+By default, `repo` only utilizes four threads (or whatever the ROM manifest declares.) If you have a stronger machine with more threads, you can increase this number. For example, to use 8 threads:
 
-    repo sync -j24
+    repo sync -j8
+
+To use all of the threads on your machine, use:
+
+    repo sync -j$(nproc --all)
+
+### Current branch only
+
+This is usually set by default in your ROM manifest, but just in case, you can tell `repo` to only fetch the branch you want to work on:
+
+    repo sync -c
 
 ### Current history only
 
-This should be set by default in your ROM manifest, but just in case, you can tell `repo` to only fetch recent changes. This allows for smaller downloads, which makes the sync quicker. Add the flag:
+To only download the most recent changes, use this flag:
 
-    repo sync -c
+    repo sync --depth=1
+
+This will make `repo` fetch the most recent changes.
 
 ### Minimal fetch
 
@@ -22,18 +34,18 @@ To disable syncing clone bundles and tags, use:
 
     repo sync --no-clone-bundle --no-tags
 
-More documentation on this required, but for most developers these flags will be OK to use. This makes the sync faster as there is less information to sync over.
+`repo` uses `git` bundles over HTTP to download repositories. To disable this behavior, we use the `--no-clone-bundle` flag. We also don't need all of the `git` tags in each repository, so we disable that too with `--no-tags`.
 
-### Putting it all together
+### `reposync` alias
 
-    repo sync -c -j24 --no-clone-bundle --no-tags
+    repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags
 
 That's quite long! How about we add this to our `.bashrc` as a alias? That way, we only have to type one phrase for `bash` to automatically type that out for us.
 
 Open up `~/.bashrc` and add these lines:
 
     # Alias to sync
-    alias reposync='repo sync -c -j24 --no-clone-bundle --no-tags'
+    alias reposync='repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags'
 
 This way, next time you want to sync, just type `reposync` and `bash` will substitute the command for you. Easy! Just don't forget to `source ~/.bashrc` otherwise `bash` will not know of this new alias.
 
