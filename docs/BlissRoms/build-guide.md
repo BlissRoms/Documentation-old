@@ -92,15 +92,6 @@ Then sync the source:
 
 *Note: For more information about the `repo` tool, visit the [Build Tips guide](build-tips.md) to learn more about the [repo flags](build-tips.md#repo-optimization-tips).*
 
-#### I still don't know how much CPU threads I have. How do I check?
-
-Run `nproc`. The output should be something like this:
-
-    rwaterspf1@test:~$ nproc
-    24
-
-This means that there are 24 threads in your machine.
-
 `repo` will start downloading all the code. That’s going to be slow, even on a fiber network. Expect downloads to take more than a couple hours.
 
 ### Build
