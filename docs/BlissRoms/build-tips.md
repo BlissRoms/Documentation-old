@@ -16,12 +16,6 @@ This should be set by default in your ROM manifest, but just in case, you can te
 
     repo sync -c
 
-### Force
-
-**Warning! Dangerous option. Read before proceeding!** Sometimes, your local history may go out of sync with remote repositories. This wouldn't be a problem if `repo` can handle it gracefully, but it doesn't and gives off a sync error. If you do not commit much, it may be worthwhile to add the force flags. Be warned though, **any changes you make to the repositories WILL BE DELETED.** Later down the line, if you commit a lot, you may want to remove this flag. To force sync, add the flag:
-
-    repo sync -f --force-sync
-
 ### Minimal fetch
 
 To disable syncing clone bundles and tags, use:
@@ -32,14 +26,14 @@ More documentation on this required, but for most developers these flags will be
 
 ### Putting it all together
 
-    repo sync -c -f -j24 --force-sync --no-clone-bundle --no-tags
+    repo sync -c -j24 --no-clone-bundle --no-tags
 
 That's quite long! How about we add this to our `.bashrc` as a alias? That way, we only have to type one phrase for `bash` to automatically type that out for us.
 
 Open up `~/.bashrc` and add these lines:
 
     # Alias to sync
-    alias reposync='repo sync -c -f -j24 --force-sync --no-clone-bundle --no-tags'
+    alias reposync='repo sync -c -j24 --no-clone-bundle --no-tags'
 
 This way, next time you want to sync, just type `reposync` and `bash` will substitute the command for you. Easy! Just don't forget to `source ~/.bashrc` otherwise `bash` will not know of this new alias.
 
