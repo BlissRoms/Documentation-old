@@ -77,8 +77,8 @@ Create a directory for the source:
 
 Before we download, we need to tell `repo` and `git` who we are. Run the following commands, substituting your information:
 
-    git config --global user.email “randy.mcrandyface@hotmail.net”
-    git config --global user.name “Randy McRandyface”
+    git config --global user.email "john.appleseed@example.com"
+    git config --global user.name "John Appleseed"
 
 Now, we’re ready to initialize. We need to tell `repo` which manifest to read:
 
