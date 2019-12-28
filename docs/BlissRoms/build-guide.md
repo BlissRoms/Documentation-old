@@ -88,13 +88,9 @@ Now, we’re ready to initialize. We need to tell `repo` which manifest to read:
 
 Then sync the source:
 
-    repo sync -j24 -c
+    repo sync -j$(nproc --all) -c
 
-`-j` is for threads. Typically, your CPU core count is your thread count, unless you’re using an older Intel CPU with hyperthreading. In that case, the thread count is double the count of your CPU cores. Newer CPUs have dropped hyperthreading unless you have the i9, so check how many threads you have. If you have four threads, you would run:
 
-    repo sync -j4 -c
-
-`-c` is for pulling in only the current branch, instead of the entire history. This is useful if you need the downloads fast and don’t want the entire history to be downloaded. This is used by default unless specified otherwise.
 
 #### I still don't know how much CPU threads I have. How do I check?
 
