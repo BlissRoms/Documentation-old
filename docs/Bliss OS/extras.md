@@ -11,6 +11,9 @@ Here's a video tutorial on how to do it properly:
 
 ## Setting up Gapps
 
+!!! warning
+    Recent builds of Bliss OS have Gapps included. If your `.iso` file name includes "GMS", it has GApps built in and you shouldn't follow the guide below. If your file name includes "FOSS", it does not have GApps built in.
+
 [See this thread from @wrwolf2!](https://forum.xda-developers.com/showpost.php?p=79289406&postcount=632)
 
 ## Watching Netflix - FOSS & GMS Builds 
