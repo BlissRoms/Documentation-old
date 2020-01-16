@@ -9,7 +9,7 @@ Here's a video tutorial on how to do it properly:
  
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/htFC8poBEPY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Setting up Gapps
+## Setting up GApps
 
 !!! warning
     Recent builds of Bliss OS have Gapps included. If your `.iso` file name includes "GMS", it has GApps built in and you shouldn't follow the guide below. If your file name includes "FOSS", it does not have GApps built in.
