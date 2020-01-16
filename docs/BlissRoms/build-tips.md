@@ -36,6 +36,18 @@ To disable syncing clone bundles and tags, use:
 
 `repo` uses `git` bundles over HTTP to download repositories. To disable this behavior, we use the `--no-clone-bundle` flag. We also don't need all of the `git` tags in each repository, so we disable that too with `--no-tags`.
 
+### Force sync
+
+Sometimes, bad Internet conditions may cause your `.repo` directory to become corrupt and not sync. `repo` keeps two copies of a repository - one under `.repo`, and one in the root of your source directory. If the repository in `.repo` is corrupted, it will not sync over to the source directory.
+
+To resolve this problem, you need to sometimes tell `repo` to forcefully sync the repository in `.repo` again with the remote repository so that changes can be synced over to the main source tree. Use the `--force-sync` flag to achieve this:
+
+    repo sync --force-sync
+
+#### Why not use `-f` as well?
+
+Starting from `repo` 1.26, the use of the flags `-f` and `--force-sync` together has been deprecated. `repo` will warn you of this change if you try and use those two flags together. To make sure your scripts do not break in future `repo` versions, it is recommended to not use the `-f` flag at all.
+
 ### `reposync` alias
 
     repo sync -c -j$(nproc --all) --no-clone-bundle --no-tags
