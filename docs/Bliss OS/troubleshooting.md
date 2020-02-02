@@ -75,6 +75,12 @@ Brief options overview:
  - `fbcon=variablename`: This is to configure framebuffer to use various options. Usually used to help fix video settings, etc. Even default rotation on some Atom tablets. Example: `video=efifb fbcon=rotate:1`
  - `VULKAN=1`: Required for Vulkan-supported chipsets. This enables `hwcomposer` to work right with screenshots and other things.
 
+!!! warning
+    The following options can only be used on Android 9/10 builds released after 2020-02-02.
+
+ - `HWC=xxx`: Define `DRM_HWComposer` - options include `drm`, `drm_minigbm`, and `intel`.
+ - `GRALLOC=xxx`: Define `DRM_Gralloc` - options include `gbm`, `minigbm`, and `intel`.
+
 As an example, here are a few of the boot options used in testing:
 
     menuentry 'Bliss-x86 Test-Oreo' --class bliss {
