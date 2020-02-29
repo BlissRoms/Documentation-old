@@ -1,6 +1,10 @@
 
 # Troubleshooting
 
+Welcome to the troubleshooting section of Bliss OS!
+
+If you believe you have found a bug, [please send us a bug report!](taking-bug-reports.md)
+
 ## 32-bit processors only (Intel Atom and similar)
 
 1. Install [Android-x86 32-bit OS from here](https://www.android-x86.org/) (doesn't matter which version, as long as it's 32-bit)
