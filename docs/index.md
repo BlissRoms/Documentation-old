@@ -1,14 +1,9 @@
 ![BlissRoms Logo](https://i.imgur.com/0GnrwaU.png)
 
-# Index
+# Deprecation notice
 
-Welcome to the documentation, written by developers of Team Bliss!
+This site is no longer actively maintained. Please go to our wiki for up-to-date information.
 
-## [Go to Bliss OS (x86) documentation](Bliss OS/index.md)
+We will close down this site in the future. Please update your bookmarks!
 
-## [Go to BlissRoms (arm/arm64) documentation](BlissRoms/index.md)
-
-## [Go to Common Documentation](common/index.md)
-
-
-Check back later for more content! We're always updating the documentation with more helpful tips and information!
+[Go to Team Bliss's wiki](https://wiki.blissroms.com/)
